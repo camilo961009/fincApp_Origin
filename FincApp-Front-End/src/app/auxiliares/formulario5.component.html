@@ -1,0 +1,60 @@
+<div class="card bg-dark text-white">
+  <div class="card-header" style="background: rgb(112, 140, 143);"><strong>{{ titulo }} </strong></div>
+  <div class="card-body" style="background: rgb(122, 149, 180)">
+    <form style="background:  rgb(122, 149, 180);">
+      <div class="form-group row">
+        <label for="cedula" class="col-form-label col-sm-2">Cedula</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="auxiliar.cedula" name="cedula" >
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="nombre" class="col-form-label col-sm-2">Nombre</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="auxiliar.nombre" name="nombre">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="apellido" class="col-form-label col-sm-2">Apellido</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="auxiliar.apellido" name="apellido">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="sueldo" class="col-form-label col-sm-2">Pago por dia</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="auxiliar.pagoPorDia" name="pagoPorDia">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="email" class="col-form-label col-sm-2">Dias de trabajo</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="auxiliar.diasDeTrabajo" name="diasDeTrabajo">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="telefono" class="col-form-label col-sm-2">Telefono</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="auxiliar.telefono" name="telefono">
+        </div>
+      </div>  
+
+      <div class="form-group row">
+        <div class="col-sm-6">
+          <input type="hidden" class="form-control" [(ngModel)]="auxiliar.cultivo" name="cultivo">
+        </div>
+      </div>  
+      
+      <div class="form-group row">
+        <div class="col-sm-6">
+          <button class="btn btn-primary" role="button" (click)='create()' *ngIf="!auxiliar.fecha else elseBlock">Crear</button>
+          <ng-template #elseBlock>
+            <button class="btn btn-primary" role="button" (click)='update()'>Editar</button>
+          </ng-template>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>

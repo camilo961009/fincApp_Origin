@@ -1,0 +1,44 @@
+<div class="card text-white bg-dark mb-3" >
+  <div class="card-header" style="background-color: rgb(112, 140, 143);"><strong> Cosechas</strong></div>
+  <div class="card-body " style="background-color: rgb(122, 149, 180)">
+    <h5 class="card-title">Listado de Cosechas</h5>
+    <div class="my-2 text-left">
+      <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/cosechas/formulario2']">
+        Adicionar Cosecha
+      </button>
+    </div>
+    <table class="table table-bordered table-striped"  style="color: black;">
+      <thead>
+        <tr>
+
+          <th>Cantidad de Kilos</th>
+          <th>fecha</th>
+          <th>Valor</th>
+          <th>Cultivo</th>
+          <th>
+            editar
+          </th>
+          <th>eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cosecha of cosechas | paginate: {itemsPerPage: 6, currentPage: page}">
+        
+          <td>{{ cosecha.cantidad}}</td>
+          <td>{{ cosecha.fechaFinal}}</td>
+          <td>{{ cosecha.valor}}</td>
+          <td>{{ cosecha.nombreCultivo}}</td>
+       
+          <td>
+            <button type="button" name="editar" [routerLink]="['/cosechas/formulario2', cosecha.idcosecha]" class="btn btn-primary btn-sm">editar</button>
+          </td>
+          <td>
+            <button type="button" name="eliminar" (click)='delete(cosecha)' class="btn btn-danger btn-sm">eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="page = $event" responsive="true" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+
+  </div>
+</div>

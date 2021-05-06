@@ -1,0 +1,81 @@
+<div class="card bg-dark text-white">
+  <div class="card-header" style="background: rgb(112, 140, 143);"><strong>{{ titulo }} </strong></div>
+  <div class="card-body" style="background: rgb(122, 149, 180)">
+    <form style="background:  rgb(122, 149, 180);">
+
+      <div class="form-group row">
+        <div class="col-sm-6">
+          <input type="hidden" class="form-control" [(ngModel)]="control.idcontrol" name="idcontrol">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="tipo" class="col-form-label col-sm-2">Tipo</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="control.tipo" name="tipo" placeholder="Ex. abono, fertilizante, fumigacion, etc">
+        </div>
+      </div>
+
+      
+      <div class="form-group row">
+        <label for="nombre" class="col-form-label col-sm-2">Nombre</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="control.nombre" name="nombre" placeholder="Ex. sivato, fitoraz, urea, etc" >
+        </div>
+      </div>
+
+      
+      <div class="form-group row">
+        <label for="descripcion" class="col-form-label col-sm-2">Descripcion</label>
+        <div class="col-sm-6">
+          <!-- <textarea type="text" class="form-control" [(ngModel)]="control.descripcion" name="descripcion">  -->
+            <textarea class="form-control" [(ngModel)]="control.descripcion"  name="descripcion" cols="30" rows="3" placeholder="Ex. Que se hizo, cuanto se hizo, cuantas plantas, etc"></textarea>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="fecha" class="col-form-label col-sm-2">Fecha</label>
+        <div class="col-sm-6">
+          <input type="date" class="form-control" [(ngModel)]="control.fecha" name="fecha">
+        </div>
+      </div>
+
+
+      <div class="form-group row">
+        <label for="cultivo" class="col-form-label col-sm-2">Cultivo</label>
+        <div class="col-sm-9">
+
+          <input type="radio" id="pimenton"  value=8  [(ngModel)]="control.cultivo" name="cultivo"> 
+          <label for="pimenton">Pimenton</label>
+
+          <input type="radio" id="abichuela" value=9 [(ngModel)]="control.cultivo" name="cultivo">
+          <label for="abichuela">Abichuela</label>
+
+          <input type="radio" id="ahuyama" value=10 [(ngModel)]="control.cultivo" name="cultivo">
+          <label for="ahuyama">Ahuyama</label>
+
+          <input type="radio" id="pepino" value=11 [(ngModel)]="control.cultivo" name="cultivo">
+          <label for="pepino">Pepino</label>
+
+          <input type="radio" id="lulo" value=12 [(ngModel)]="control.cultivo" name="cultivo">
+          <label for="lulo">Lulo</label>
+
+
+         <!--  <input type="text" class="form-control" [(ngModel)]="cosecha.cultivo" name="cultivo">  -->
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-6">
+          <button class="btn btn-primary" role="button" (click)='create()' *ngIf="!control.idcontrol else elseBlock" >Crear</button>
+
+          <ng-template #elseBlock>
+            <button class="btn btn-primary" role="button" (click)='update()'>Editar</button>
+          </ng-template>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+

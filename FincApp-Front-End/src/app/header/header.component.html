@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg" style="background-color: rgb(122, 154, 190)">
+  <a class="navbar-brand" href="#"  style="color: blue;" ><strong> {{ title }}</strong></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#" style="color: blue;"><strong>Home</strong> <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/trabajadores" style="color: blue;"><strong>Empleados</strong></a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/auxiliares" style="color: blue;"> <strong>Trabajadores</strong> </a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/cultivos" style="color: blue;"> <strong>Cultivos</strong>  </a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/cosechas" style="color: blue;"> <strong>Cosechas</strong></a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/insumos" style="color: blue;"> <strong>Insumos</strong></a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/controles" style="color: blue;"><strong>Controles</strong> </a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav navbar-right">  
+      <li><a [routerLink]="['/login']" class="btn btn-outline-primary" style="background-color: aqua;"><strong>Iniciar sesion</strong></a></li>
+
+
+    </ul>
+
+
+  </div>
+</nav>

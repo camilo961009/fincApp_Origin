@@ -1,0 +1,47 @@
+<div class="card bg-dark text-white">
+  <div class="card-header" style="background: rgb(112, 140, 143);"><strong>{{ titulo }} </strong></div>
+  <div class="card-body" style="background: rgb(122, 149, 180)">
+    <form style="background:  rgb(122, 149, 180);">
+      <div class="form-group row">
+        <div class="col-sm-6">
+          <input type="hidden" class="form-control" [(ngModel)]="cultivo.idcultivo" name="idcultivo">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="tipoCultivo" class="col-form-label col-sm-2">Nombre del cultivo</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="cultivo.tipoCultivo" name="tipoCultivo">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="cantidadDeMatas" class="col-form-label col-sm-2">Cantidad de plantas</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="cultivo.cantidadDeMatas" name="cantidadDeMatas">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="fecha" class="col-form-label col-sm-2">Fecha</label>
+        <div class="col-sm-6">
+          <input type="date" class="form-control" [(ngModel)]="cultivo.fecha" name="fecha">
+        </div>
+      </div>
+
+
+      <div class="form-group row">
+        <div class="col-sm-6">
+          <button class="btn btn-primary" role="button" (click)='create()' *ngIf="!cultivo.idcultivo else elseBlock" >Crear</button>
+
+          <ng-template #elseBlock>
+            <button class="btn btn-primary" role="button" (click)='update()'>Editar</button>
+          </ng-template>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+

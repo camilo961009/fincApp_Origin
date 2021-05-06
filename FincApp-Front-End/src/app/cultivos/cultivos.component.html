@@ -1,0 +1,43 @@
+<div class="card text-white bg-dark mb-3" >
+  <div class="card-header" style="background-color: rgb(112, 140, 143);"><strong> Cultivos</strong></div>
+  <div class="card-body " style="background-color: rgb(122, 149, 180)">
+    <h5 class="card-title">Listado de Cultivos</h5>
+    <div class="my-2 text-left">
+      <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/cultivos/formulario1']">
+        Adicionar Cultivo
+      </button>
+    </div>
+    <table class="table table-bordered table-striped" style="color: black;">
+      <thead>
+        <tr>
+          <th>Nombre del cultivo</th>
+          <th>Cantidad de plantas</th>
+          <th>fecha</th>
+          <th>
+            editar
+          </th>
+          <th>eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cultivo of cultivos | paginate: {itemsPerPage: 6, currentPage: page}">
+        
+          <td>{{ cultivo.tipoCultivo }}</td>
+          <td>{{ cultivo.cantidadDeMatas}}</td>
+          <td>{{ cultivo.fechaFinal}}</td>
+          <td>
+            <button type="button" name="editar" [routerLink]="['/cultivos/formulario1', cultivo.idcultivo]" class="btn btn-primary btn-sm">editar</button>
+          </td>
+          <td>
+            <button type="button" name="eliminar" (click)='delete(cultivo)' class="btn btn-danger btn-sm">eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="page = $event" responsive="true" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+
+  </div>
+</div>
+
+
+

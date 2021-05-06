@@ -1,0 +1,113 @@
+<div class="card bg-dark text-white">
+  <div class="card-header" style="background: rgb(112, 140, 143);"><strong>{{ titulo }} </strong></div>
+  <div class="card-body" style="background: rgb(122, 149, 180)">
+    <form style="background:  rgb(122, 149, 180);">
+      <div class="form-group row">
+        <label style="color: black;" for="cedula" class="col-form-label col-sm-2">Cedula</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="trabajador.cedula" name="cedula" >
+        </div>
+      </div>
+      <div class="form-group row">
+        <label style="color: black;" for="nombre" class="col-form-label col-sm-2">Nombre</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="trabajador.nombre" name="nombre">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label style="color: black;" for="apellido" class="col-form-label col-sm-2">Apellido</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="trabajador.apellido" name="apellido">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label style="color: black;" for="sueldo" class="col-form-label col-sm-2">Sueldo</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="trabajador.sueldo" name="sueldo">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label style="color: black;" for="email" class="col-form-label col-sm-2">Email</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="trabajador.email" name="email">
+        </div>
+      </div>
+
+     
+
+      <div class="form-group row">
+        <label style="color: black;" for="telefono" class="col-form-label col-sm-2">Telefono</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="trabajador.telefono" name="telefono">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label style="color: black;" for="cargo" class="col-form-label col-sm-2">Cargo</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="trabajador.cargo" name="cargo" placeholder="Ex. administrador, empleado">
+
+        </div>
+      </div>
+
+
+
+     <div class="form-group row">
+      <label style="color: black;"   for="cultivo" class="col-form-label col-sm-2">Cultivo</label>
+        <div class="col-sm-6">
+           <input type="radio" id="pimenton"  value=8  [(ngModel)]="trabajador.cultivo" name="cultivo"> 
+           <label for="pimenton">Pimenton</label>
+
+           <input type="radio" id="abichuela" value=9 [(ngModel)]="trabajador.cultivo" name="cultivo">
+           <label for="abichuela">Abichuela</label>
+
+            <input type="radio" id="ahuyama" value=10 [(ngModel)]="trabajador.cultivo" name="cultivo">
+            <label for="ahuyama">Ahuyama</label>
+
+            <input type="radio" id="pepino" value=11 [(ngModel)]="trabajador.cultivo" name="cultivo">
+            <label for="pepino">Pepino</label>
+
+            <input type="radio" id="lulo" value=12 [(ngModel)]="trabajador.cultivo" name="cultivo">
+            <label for="lulo">Lulo</label>
+
+           <!-- <select style="width: 520px; height: 32px;"  id="selecdecultivo" name="cultivo" [(ngModel)]="trabajador.cultivo" (change)="capturar()">
+            <option [ngValue]="undefined">Seleccione el cultivo</option>
+            <option [value]="item" *ngFor="let item of lista">{{item}}</option>
+          </select> 
+            
+            {{seleccionado}}
+             <input type="text" class="form-control" [(ngModel)]="cosecha.cultivo" name="cultivo">  -->
+        </div>
+      </div>
+        
+
+     
+      
+      
+      <div class="form-group row">      
+        <div class="col-sm-6">
+          <input type="hidden" class="form-control" [(ngModel)]="trabajador.finca" name="finca">
+        </div>
+      </div>
+
+    
+      
+
+
+
+      <div class="form-group row">
+        <div class="col-sm-6">
+          <button class="btn btn-primary" role="button" (click)='create()' *ngIf="!trabajador.createAt else elseBlock">Crear</button>
+          <ng-template #elseBlock>
+            <button class="btn btn-primary" role="button" (click)='update()'>Editar</button>
+          </ng-template>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+
+
+

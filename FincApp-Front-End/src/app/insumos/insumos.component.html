@@ -1,0 +1,48 @@
+<div class="card text-white bg-dark mb-3" >
+  <div class="card-header" style="background-color: rgb(112, 140, 143);"><strong> Insumos</strong></div>
+  <div class="card-body " style="background-color: rgb(122, 149, 180)">
+    <h5 class="card-title">Listado de Insumos</h5>
+    <div class="my-2 text-left">
+      <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/insumos/formulario3']">
+        Adicionar Insumo
+      </button>
+    </div>
+    <table class="table table-bordered table-striped" style="color: black;">
+      <thead>
+        <tr>
+
+          <th>Tipo</th>
+          <th>Nombre</th>
+          <th>Cantidad</th>
+          <th>Precio</th>
+          
+
+          <th>
+            editar
+          </th>
+          <th>eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let insumo of insumos | paginate: {itemsPerPage: 6, currentPage: page}">
+        
+          <td>{{insumo.tipo}}</td>
+          <td>{{ insumo.nombre}}</td>
+          <td>{{ insumo.cantidad}}</td>
+          <td>{{ insumo.precio}}</td>
+        
+
+       
+          <td>
+            <button type="button" name="editar" [routerLink]="['/insumos/formulario3', insumo.idinsumo]" class="btn btn-primary btn-sm">editar</button>
+          </td>
+          <td>
+            <button type="button" name="eliminar" (click)='delete(insumo)' class="btn btn-danger btn-sm">eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="page = $event" responsive="true" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+
+  </div>
+</div>

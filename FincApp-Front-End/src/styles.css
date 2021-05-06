@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+html{
+    position:relative;
+    min-height: 100%;
+}
+
+body{
+    
+
+    background-image: url("https://c.wallhere.com/photos/05/ae/1920x1080_px_Crops_Farm_fields_landscapes_nature_plants_sky-1693029.jpg!d");
+    
+    background-size: cover;
+
+
+    margin: bottom 60px;
+
+
+}

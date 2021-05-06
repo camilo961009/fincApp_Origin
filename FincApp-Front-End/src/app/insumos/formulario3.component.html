@@ -1,0 +1,55 @@
+<div class="card bg-dark text-white">
+  <div class="card-header" style="background: rgb(112, 140, 143);"><strong>{{ titulo }} </strong></div>
+  <div class="card-body" style="background: rgb(122, 149, 180)">
+    <form style="background:  rgb(122, 149, 180);">
+
+      <div class="form-group row">
+        <div class="col-sm-6">
+          <input type="hidden" class="form-control" [(ngModel)]="insumo.idinsumo" name="idinsumo">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="nombre" class="col-form-label col-sm-2">Nombre</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="insumo.nombre" name="nombre" placeholder="Ex. Palas, abono Urea, pepino Cohombro(semilla) etc">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="tipo" class="col-form-label col-sm-2">Tipo</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="insumo.tipo" name="tipo" placeholder="Ex. Fertilizante, Control de plagas, Semillas, Maquinaria, etc">
+        </div>
+      </div>
+
+
+      <div class="form-group row">
+        <label for="cantidad" class="col-form-label col-sm-2">Cantidad</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="insumo.cantidad" name="cantidad">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="precio" class="col-form-label col-sm-2">Costo total</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="insumo.precio" name="precio">
+        </div>
+      </div>
+
+
+      <div class="form-group row">
+        <div class="col-sm-6">
+          <button class="btn btn-primary" role="button" (click)='create()' *ngIf="!insumo.idinsumo else elseBlock" >Crear</button>
+
+          <ng-template #elseBlock>
+            <button class="btn btn-primary" role="button" (click)='update()'>Editar</button>
+          </ng-template>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+

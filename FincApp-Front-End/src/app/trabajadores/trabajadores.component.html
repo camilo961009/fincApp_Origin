@@ -1,0 +1,61 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-13">
+      <div class="card text-white bg-dark mb-3" >
+        <div class="card-header" style="background-color: rgb(112, 140, 143);"><strong>Empleados</strong></div>
+        <div class="card-body " style="background-color: rgb(122, 149, 180)">
+          <h5 class="card-title">Listado de empleados</h5>
+          <div class="my-4 text-left">
+            <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/trabajadores/form']">
+              Adicionar empleado
+            </button>
+          </div>
+          <table class="table table-bordered table-striped" style="color: black;" >
+            <thead >
+              <tr> 
+                <th>Cedula</th>
+                <th>nombre</th>
+                <th>apellido</th>
+                <th>sueldo</th>
+                <th>email</th>
+                <th>fecha</th>
+                <th>Cargo</th>
+                <th>Cultivo</th>
+                <th>Telefono</th>
+                
+                <th>
+                  editar
+                </th>
+                <th>eliminar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let trabajador of trabajadores | paginate: {itemsPerPage: 6, currentPage: page}">
+                <td>{{ trabajador.cedula}}</td>
+                <td>{{ trabajador.nombre }}</td>
+                <td>{{ trabajador.apellido }}</td>
+                <td>{{ trabajador.sueldo }}</td>
+                <td>{{ trabajador.email }}</td>
+                <td>{{ trabajador.createAt }}</td>
+                <td>{{ trabajador.cargo}}</td>
+                <td>{{ trabajador.nombreCultivo}}</td>
+                <td>{{ trabajador.telefono}}</td>
+                <td>
+                  <button type="button" name="editar" [routerLink]="['/trabajadores/form', trabajador.cedula]" class="btn btn-primary btn-sm">editar</button>
+                </td>
+                <td>
+                  <button type="button" name="eliminar" (click)='delete(trabajador)' class="btn btn-danger btn-sm">eliminar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <pagination-controls (pageChange)="page = $event" responsive="true" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+        </div>
+      </div>
+    
+
+    </div>
+  </div>
+</div>
+

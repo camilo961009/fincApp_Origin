@@ -1,0 +1,46 @@
+<div class="card text-white bg-dark mb-3" >
+  <div class="card-header" style="background-color: rgb(112, 140, 143);"><strong> Controles</strong></div>
+  <div class="card-body " style="background-color: rgb(122, 149, 180)">
+    <h5 class="card-title">Listado de Controles</h5>
+    <div class="my-2 text-left">
+      <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/controles/formulario4']">
+        Adicionar Control
+      </button>
+    </div>
+    <table class="table table-bordered table-striped" style="color: black;">
+      <thead>
+        <tr>
+
+          <th>Tipo</th>
+          <th>Nombre</th>
+          <th>Descripcion</th>
+          <th>Fecha</th>
+          <th>Cultivo</th>
+          <th>
+            editar
+          </th>
+          <th>eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let control of controles | paginate: {itemsPerPage: 6, currentPage: page}">
+        
+          <td>{{ control.tipo}}</td>
+          <td>{{ control.nombre}}</td>
+          <td>{{ control.descripcion}}</td>
+          <td>{{ control.fechaFinal}}</td>
+          <td>{{ control.nombreCultivo}}</td>
+       
+          <td>
+            <button type="button" name="editar" [routerLink]="['/controles/formulario4', control.idcontrol]" class="btn btn-primary btn-sm">editar</button>
+          </td>
+          <td>
+            <button type="button" name="eliminar" (click)='delete(control)' class="btn btn-danger btn-sm">eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="page = $event" responsive="true" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+
+  </div>
+</div>

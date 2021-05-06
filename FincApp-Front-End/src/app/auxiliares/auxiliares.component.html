@@ -1,0 +1,49 @@
+<div class="card text-white bg-dark mb-3" >
+  <div class="card-header" style="background-color: rgb(112, 140, 143);"><strong> Trabajadores</strong></div>
+  <div class="card-body " style="background-color: rgb(122, 149, 180)">
+    <h5 class="card-title">Listado de trabajadores</h5>
+    <div class="my-2 text-left">
+      <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/auxiliares/formulario5']">
+        Adicionar Trabajador
+      </button>
+    </div>
+    <table class="table table-bordered table-striped"  style="color: black;">
+      <thead>
+        <tr>
+          <th>Cedula</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Pago por dia</th>
+          <th>Dias de trabajo</th>
+          <th>Fecha</th>
+          <th>telefono</th>
+          
+          <th>
+            editar
+          </th>
+          <th>eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let auxiliar of auxiliares | paginate: {itemsPerPage: 6, currentPage: page}">
+          <td>{{ auxiliar.cedula}}</td>
+          <td>{{ auxiliar.nombre }}</td>
+          <td>{{ auxiliar.apellido }}</td>
+          <td>{{ auxiliar.pagoPorDia }}</td>
+          <td>{{ auxiliar.diasDeTrabajo }}</td>
+          <td>{{ auxiliar.fecha }}</td>
+          <td>{{ auxiliar.telefono}}</td>
+          
+          <td>
+            <button type="button" name="editar" [routerLink]="['/auxiliares/formulario5', auxiliar.cedula]" class="btn btn-primary btn-sm">editar</button>
+          </td>
+          <td>
+            <button type="button" name="eliminar" (click)='delete(auxiliar)' class="btn btn-danger btn-sm">eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="page = $event" responsive="true" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+
+  </div>
+</div>
