@@ -17,10 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.uniquindio.FincApp.dto.CultivationDTO;
 import com.uniquindio.FincApp.service.ICultivationService;
 
-
+@CrossOrigin(origins = { "http://localhost:4200" })
 @RestController
 @RequestMapping("/cultivation")
-@CrossOrigin(origins = { "http://localhost:4200" })
 public class CultivationController {
 	
 	@Autowired

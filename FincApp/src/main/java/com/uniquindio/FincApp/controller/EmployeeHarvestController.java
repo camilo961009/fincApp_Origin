@@ -18,10 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.uniquindio.FincApp.dto.EmployeeHarvestDTO;
 import com.uniquindio.FincApp.service.IEmployeeHarvestService;
 
-
+@CrossOrigin(origins = { "http://localhost:4200" })
 @RestController
 @RequestMapping("/employeeHarvest")
-@CrossOrigin(origins = { "http://localhost:4200" })
 public class EmployeeHarvestController {
 
 	@Autowired

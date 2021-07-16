@@ -11,11 +11,15 @@ import com.uniquindio.FincApp.dto.EmployeeDTO;
 
 @Service
 public class SendEmailService {
+	
+	
 	//Importante hacer la inyección de dependencia de JavaMailSender:
     @Autowired
     private JavaMailSender mailSender;
+    
 
     public void sendEmail(List<EmployeeDTO> listClients, String subject, String content) {
+
         for (EmployeeDTO c : listClients) 
         { 
             SimpleMailMessage email = new SimpleMailMessage();

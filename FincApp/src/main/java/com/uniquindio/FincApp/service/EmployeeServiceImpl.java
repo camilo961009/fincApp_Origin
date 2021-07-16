@@ -34,6 +34,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
 	private ICultivationDao cultivoDao;
 	@Autowired
 	ObjectMapper objectMapper;
+	
 	@Autowired
     private JavaMailSender mailSender;
 
@@ -110,12 +111,13 @@ public class EmployeeServiceImpl implements IEmployeeService {
 
 		return employeeDTO;
 	}
-	
+
 	@Override
 	public void sendEmail(List<EmployeeDTO> listClients, String subject, String content) {
 		   for (EmployeeDTO c : listClients) 
 	        { 
 	            SimpleMailMessage email = new SimpleMailMessage();
+
 	            //recorremos la lista y enviamos a cada cliente el mismo correo
 	            email.setTo(c.getEmail());
 	            email.setSubject(subject);
@@ -123,6 +125,8 @@ public class EmployeeServiceImpl implements IEmployeeService {
 
 	            mailSender.send(email);
 	        }
+		   
+		
 	}
 
 }

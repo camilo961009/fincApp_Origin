@@ -4,12 +4,14 @@ import { of } from 'rxjs/observable/of';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import {Trabajador} from './trabajador';
+import {EmailRequest} from './emailRequest';
 //import {TRABAJADORES} from './trabajadores.json'
 
 @Injectable()
 export class TrabajadorService {
 
   private urlEndPoint: string = 'http://localhost:8080/employee/trabajadores';
+  private urlEmail: string = 'http://localhost:8080/employee/trabajadores/email';
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 
@@ -42,6 +44,10 @@ export class TrabajadorService {
 
   delete(cedula: number): Observable<Trabajador>{
     return this.http.delete<Trabajador>(`${this.urlEndPoint}/${cedula}`, {headers: this.httpHeaders})
+  }
+
+  sendEmail(emailRequest: EmailRequest):Observable<EmailRequest>{
+    return this.http.post<EmailRequest>(this.urlEmail,emailRequest,{headers: this.httpHeaders})
   }
 
 

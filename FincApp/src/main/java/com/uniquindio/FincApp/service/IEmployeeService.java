@@ -16,6 +16,9 @@ public interface IEmployeeService {
 	public EmployeeDTO findById(Long cedula);
 
 	public EmployeeDTO saveEmployee(EmployeeDTO employee);	
-
+	
 	public void sendEmail(List<EmployeeDTO> listClients, String subject, String content);
+	
+	
+
 }

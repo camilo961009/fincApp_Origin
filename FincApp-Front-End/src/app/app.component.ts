@@ -10,5 +10,5 @@ export class AppComponent {
 
   curso: string = "Angular con Spring 5";
 
-  profesor: string = "CADATA"
+  profesor: string = "Andrés Guzmán"
 }
