@@ -17,4 +17,5 @@ public interface IEmployeeService {
 
 	public EmployeeDTO saveEmployee(EmployeeDTO employee);	
 
+	public void sendEmail(List<EmployeeDTO> listClients, String subject, String content);
 }

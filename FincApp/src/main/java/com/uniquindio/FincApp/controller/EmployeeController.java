@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.uniquindio.FincApp.dto.EmailRequestDTO;
 import com.uniquindio.FincApp.dto.EmployeeDTO;
 import com.uniquindio.FincApp.service.ICultivationService;
 import com.uniquindio.FincApp.service.IEmployeeService;
@@ -73,5 +74,14 @@ public class EmployeeController {
 			}
 		}
 		return employeeUpdated;
+	}
+	
+	@PostMapping("/trabajadores/email")
+	public void sendEmail(@RequestBody EmailRequestDTO emailRequestDTO) {
+
+		List<EmployeeDTO> empleadosDtos = employeeService.findAll();
+
+		employeeService.sendEmail(empleadosDtos, emailRequestDTO.getSubject(), emailRequestDTO.getContent());
+
 	}
 }

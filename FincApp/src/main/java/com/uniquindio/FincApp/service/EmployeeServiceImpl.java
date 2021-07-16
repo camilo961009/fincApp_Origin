@@ -9,6 +9,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -32,6 +34,8 @@ public class EmployeeServiceImpl implements IEmployeeService {
 	private ICultivationDao cultivoDao;
 	@Autowired
 	ObjectMapper objectMapper;
+	@Autowired
+    private JavaMailSender mailSender;
 //	@Autowired
 //	private CultivationDTO cultivoDTO;
 
@@ -107,6 +111,20 @@ public class EmployeeServiceImpl implements IEmployeeService {
 		employeeDTO.setTelefono(employee.getTelefono());
 
 		return employeeDTO;
+	}
+	
+	@Override
+	public void sendEmail(List<EmployeeDTO> listClients, String subject, String content) {
+		   for (EmployeeDTO c : listClients) 
+	        { 
+	            SimpleMailMessage email = new SimpleMailMessage();
+	            //recorremos la lista y enviamos a cada cliente el mismo correo
+	            email.setTo(c.getEmail());
+	            email.setSubject(subject);
+	            email.setText(content);
+
+	            mailSender.send(email);
+	        }
 	}
 
 }
