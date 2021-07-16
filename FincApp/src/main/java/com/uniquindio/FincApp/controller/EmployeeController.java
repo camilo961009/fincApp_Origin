@@ -20,10 +20,9 @@ import com.uniquindio.FincApp.dto.EmployeeDTO;
 import com.uniquindio.FincApp.service.ICultivationService;
 import com.uniquindio.FincApp.service.IEmployeeService;
 
-
+@CrossOrigin(origins = { "http://localhost:4200" })
 @RestController
 @RequestMapping("/employee")
-@CrossOrigin(origins = { "http://localhost:4200" })
 public class EmployeeController {
 
 	@Autowired
@@ -75,7 +74,7 @@ public class EmployeeController {
 		}
 		return employeeUpdated;
 	}
-	
+
 	@PostMapping("/trabajadores/email")
 	public void sendEmail(@RequestBody EmailRequestDTO emailRequestDTO) {
 

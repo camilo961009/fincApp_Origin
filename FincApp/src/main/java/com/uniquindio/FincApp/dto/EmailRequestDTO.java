@@ -9,6 +9,7 @@ public class EmailRequestDTO {
 	private String subject;
 	private String content;
 	
+	
 	public String getSubject() {
 		return subject;
 	}
@@ -21,5 +22,6 @@ public class EmailRequestDTO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-
+	
+	
 }

@@ -1,0 +1,32 @@
+<div class="card bg-dark text-white">
+  <div class="card-header" style="background: rgb(112, 140, 143);"><strong>{{ titulo }} </strong></div>
+  <div class="card-body" style="background: rgb(122, 149, 180)">
+    <form style="background:  rgb(122, 149, 180);">
+     
+
+      <div class="form-group row">
+        <label for="subject" class="col-form-label col-sm-2">Asunto</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="emailRequest.subject" name="subject">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="content" class="col-form-label col-sm-2">Descripcion</label>
+        <div class="col-sm-6">
+            <textarea class="form-control" [(ngModel)]="emailRequest.content"  name="content" cols="30" rows="3"></textarea>
+        </div>
+      </div>
+
+      <div> 
+        <div class="col-sm-6">
+          <button class="btn btn-primary" role="button" (click)='sendEmail()'> Enviar Email </button>
+        </div>
+      </div>
+
+
+    </form>
+
+  </div>
+</div>
+

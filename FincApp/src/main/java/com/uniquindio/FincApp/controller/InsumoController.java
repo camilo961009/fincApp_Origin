@@ -19,10 +19,9 @@ import com.uniquindio.FincApp.dto.EmployeeDTO;
 import com.uniquindio.FincApp.dto.InsumoDTO;
 import com.uniquindio.FincApp.service.IInsumoService;
 
-
+@CrossOrigin(origins = { "http://localhost:4200" })
 @RestController
 @RequestMapping("/insumo")
-@CrossOrigin(origins = { "http://localhost:4200" })
 public class InsumoController {
 
 	@Autowired

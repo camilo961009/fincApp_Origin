@@ -22,7 +22,7 @@ export class FormComponent implements OnInit {
   value:number= 0;
  
   constructor(private trabajadorService: TrabajadorService,
-   private router: Router,
+    private router: Router,
    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {

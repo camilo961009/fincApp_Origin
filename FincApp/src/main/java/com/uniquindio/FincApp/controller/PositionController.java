@@ -19,10 +19,9 @@ import com.uniquindio.FincApp.dto.EmployeeDTO;
 import com.uniquindio.FincApp.dto.PositionDTO;
 import com.uniquindio.FincApp.service.IPositionService;
 
-
+@CrossOrigin(origins = { "http://localhost:4200" })
 @RestController
 @RequestMapping("/position")
-@CrossOrigin(origins = { "http://localhost:4200" })
 public class PositionController {
 
 	@Autowired

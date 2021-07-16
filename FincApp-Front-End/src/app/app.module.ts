@@ -34,22 +34,12 @@ import { AuxiliaresComponent } from './auxiliares/auxiliares.component';
 import { Formulario5Component } from './auxiliares/formulario5.component';
 import { AuxiliarService } from './auxiliares/auxiliar.service';
 
-import { LoginComponent } from './login/login.component';
-import { AuthService } from './login/auth.service';
-import { LogoutComponent } from './logout/logout.component';
-import { MenuComponent } from './menu/menu.component';
-
-
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HttpInterceptorService } from './http-interceptor.service';
+import { EmailformComponent } from './trabajadores/emailform.component';
 
 
 
 const routes: Routes = [
-
-  {path: 'header', component: HeaderComponent},
-
-  {path: '', redirectTo: '/cosechas', pathMatch: 'full'},
+  {path: '', redirectTo: '/trabajadores', pathMatch: 'full'},
   {path: 'directivas', component: DirectivaComponent},
 
   {path: 'trabajadores', component: TrabajadoresComponent},
@@ -76,11 +66,9 @@ const routes: Routes = [
   {path: 'auxiliares/formulario5', component: Formulario5Component},
   {path: 'auxiliares/formulario5/:cedula', component: Formulario5Component},
 
-   {path: 'login', component: LoginComponent},
- //{path: '', component: LoginComponent},
-  {path: 'logout', component: LoginComponent},
+  {path: 'trabajadores/emailform', component: EmailformComponent}
 
- 
+
 
 
   
@@ -110,10 +98,10 @@ const routes: Routes = [
 
     AuxiliaresComponent,
     Formulario5Component,
+    
+    EmailformComponent,
+    
 
-    LoginComponent,
-    LogoutComponent,
-     MenuComponent
 
   ],
   imports: [
@@ -123,21 +111,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     NgxPaginationModule
   ],
-  exports: [RouterModule],
-   providers: [
-     TrabajadorService, 
-     CultivoService, 
-     CosechaService, 
-     InsumoService,
-      ControlService, 
-      AuxiliarService,
-      AuthService,
-    //  {
-//        provide: HTTP_INTERCEPTORS,
-  //     useClass: HttpInterceptorService,
-  //     multi: true
- //     }
-    ],
+   providers: [TrabajadorService, CultivoService, CosechaService, InsumoService, ControlService, AuxiliarService],
    
   bootstrap: [AppComponent]
 })
