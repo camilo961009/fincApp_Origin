@@ -36,8 +36,6 @@ public class EmployeeServiceImpl implements IEmployeeService {
 	ObjectMapper objectMapper;
 	@Autowired
     private JavaMailSender mailSender;
-//	@Autowired
-//	private CultivationDTO cultivoDTO;
 
 	@Override
 	public EmployeeDTO saveEmployee(EmployeeDTO employeeDTO) {
